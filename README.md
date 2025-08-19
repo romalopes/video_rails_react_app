@@ -35,3 +35,13 @@ $ rails g scaffold post title body:text
 $ rails db:migrate
 $ rails db:seed
 ```
+
+Creating the react app
+
+```shell
+$ npm create vite@latest
+$ npm install
+$ npm install dotenv
+   Create .env.development #Create .env
+$ npm run dev
+```

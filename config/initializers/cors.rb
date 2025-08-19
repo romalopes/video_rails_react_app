@@ -15,7 +15,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     # Where the request comes from, e.g., "https://example.com"
     # origins "*"  # Replace '*' with your frontend URL in production
     # origins Rails.env.development? ? "*" : Rails.application.credentials.frontend_url
-    origins Rails.env.development? ? "https://27.0.0.1:5173" : "https://your-frontend.com"
+    origins Rails.env.development? ? "https://127.0.0.1:5173" : "https://your-frontend.com"
 
     resource "*",
       headers: :any,
