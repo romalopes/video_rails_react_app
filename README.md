@@ -29,3 +29,8 @@ $ bundle
 ```
 
 ##### Add Rack::Cors with initializer.
+
+```shell
+$ rails g scaffold post title body:text
+$ rails db:migrate
+```
