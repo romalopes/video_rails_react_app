@@ -28,7 +28,7 @@ $ rails new video_2 api
 $ bundle
 ```
 
-##### Add Rack::Cors with initializer.
+- Add Rack::Cors with initializer.
 
 ```shell
 $ rails g scaffold post title body:text
