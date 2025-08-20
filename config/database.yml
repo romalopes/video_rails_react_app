@@ -39,21 +39,23 @@ test:
 #     database: storage/production_cable.sqlite3
 #     migrations_paths: db/cable_migrate
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV['DATABASE_URL'] %>
-
-production:
-  <<: *default
-
-cable:
-  <<: *default
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   url: <%= ENV['DATABASE_URL'] %>
 
 # production:
 #   <<: *default
-#   connects_to:
-#     database:
-#       writing: <%= ENV["DATABASE_URL"] %>
-#       cable:   <%= ENV["DATABASE_URL"] %>
+
+# cable:
+#   <<: *default
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  <<: *default
+  connects_to:
+    database:
+      writing: <%= ENV["DATABASE_URL"] %>
+      cable: <%= ENV["DATABASE_URL"] %>
