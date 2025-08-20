@@ -59,7 +59,10 @@ production:
     database:
       writing: <%= ENV["DATABASE_URL"] %>
       cable: <%= ENV["DATABASE_URL"] %>
-queue:
+  queue:
+    <<: *default
+    adapter: postgresql
+    database: <%= ENV["DATABASE_URL"] %>
+
+cable:
   <<: *default
-# cable:
-# <<: *default
