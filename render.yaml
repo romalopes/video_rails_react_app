@@ -16,7 +16,7 @@ services:
     name: video-rails-api
     env: ruby
     plan: free # ou outro plano que você escolher
-    buildCommand: "bundle install --deployment --without development test"
+    buildCommand: "bundle install"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
