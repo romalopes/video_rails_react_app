@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: video-rails-api
+    env: ruby
+    buildCommand: "bundle install"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: video-rails-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+databases:
+  - name: video-rails-db
+    plan: free
