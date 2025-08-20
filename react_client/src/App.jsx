@@ -1,17 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import PostList from './features/posts/PostList'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+// import { BrowserRouter as Router} from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import AppRoutes from "./components/AppRoutes";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <>
+    <Router>
       <h1>React on Rails - POSTS---</h1>
-      < PostList />
-      {/* <div>
+      <NavBar />
+      <AppRoutes />
+    </Router>
+  );
+}
+
+export default App;
+
+{
+  /* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -30,9 +41,5 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p> */}
-    </>
-  )
+      </p> */
 }
-
-export default App
