@@ -47,3 +47,16 @@ $ npm run dev
 $ npm install -g vercel
 $ vercel
 ```
+
+Linked to romalopes-projects/react-client (created .vercel and added it to .gitignore)
+🔍 Inspect: https://vercel.com/romalopes-projects/react-client/AGk39x5rjNhMcyN3DUkPbAE7WV6T [3s]
+✅ Production: https://react-client-a6y1tzcqh-romalopes-projects.vercel.app [3s]
+💡 To change the domain or build command, go to https://vercel.com/romalopes-projects/react-client/settings
+
+# Heroku
+
+```shell
+$ brew tap heroku/brew && brew install heroku
+$ heroku login
+$ heroku create video_rails_react
+```
