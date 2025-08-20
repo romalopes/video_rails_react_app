@@ -50,3 +50,10 @@ production:
 
 cable:
   <<: *default
+
+# production:
+#   <<: *default
+#   connects_to:
+#     database:
+#       writing: <%= ENV["DATABASE_URL"] %>
+#       cable:   <%= ENV["DATABASE_URL"] %>
