@@ -44,4 +44,6 @@ $ npm install
 $ npm install dotenv
    Create .env.development #Create .env
 $ npm run dev
+$ npm install -g vercel
+$ vercel
 ```

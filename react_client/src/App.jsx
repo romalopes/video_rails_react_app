@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <h1>React on Rails - POSTS</h1>
+      <h1>React on Rails - POSTS---</h1>
       < PostList />
       {/* <div>
         <a href="https://vite.dev" target="_blank">
