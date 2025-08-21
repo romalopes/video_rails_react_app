@@ -20,6 +20,7 @@ function NewPostForm() {
       });
       if (response.ok) {
         const { id } = await response.json();
+        console.log("Created with success");
         navigate(`/posts/${id}`);
       } else {
         console.log("Response with problem " + response.statusText);
@@ -34,6 +35,7 @@ function NewPostForm() {
           <label htmlFor="titleInput">Title:</label>
           <input
             type="text"
+            id="post-title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
@@ -42,7 +44,8 @@ function NewPostForm() {
         <div>
           <label htmlFor="bodyInput">Body:</label>
           <textarea
-            value={body}
+            value={postbody}
+            id="post-body"
             onChange={(e) => setBody(e.target.value)}
             required
           />
