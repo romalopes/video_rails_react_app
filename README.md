@@ -46,6 +46,7 @@ $ npm install dotenv
 $ npm run dev
 $ npm install -g vercel
 $ vercel
+$ npm install react-router-dom
 ```
 
 Linked to romalopes-projects/react-client (created .vercel and added it to .gitignore)
@@ -59,4 +60,9 @@ Linked to romalopes-projects/react-client (created .vercel and added it to .giti
 $ brew tap heroku/brew && brew install heroku
 $ heroku login
 $ heroku create video_rails_react
+$ heroku addons:create heroku-postgresql:hobby-dev
+$ git push heroku main
+$ heroku run rails db:migrate
+$ heroku run rails db:seed
+$ heroku open
 ```
