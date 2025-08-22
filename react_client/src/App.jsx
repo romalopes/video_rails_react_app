@@ -7,6 +7,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import AppRoutes from "./components/AppRoutes";
 
+/**
+ * The main App component, which renders the main elements of the page.
+ * Currently, that consists of a heading, a navigation bar, and a set of
+ * routes to the different pages.
+ */
 function App() {
   const [count, setCount] = useState(0);
 
