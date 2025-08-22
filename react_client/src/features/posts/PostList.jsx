@@ -54,6 +54,7 @@ function PostList() {
             <Link to={`/posts/${post.id}`}>{post.title}</Link>
           </h2>
           <div className="post-links">
+            <Link to={`/posts/${post.id}/edit`}> Edit post </Link>
             <button onClick={() => deletePost(post.id)}>Delete Post</button>
           </div>
           <p>{post.body}</p>
