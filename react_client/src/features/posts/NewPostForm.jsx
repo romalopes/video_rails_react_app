@@ -44,7 +44,7 @@ function NewPostForm() {
         <div>
           <label htmlFor="bodyInput">Body:</label>
           <textarea
-            value={postbody}
+            value={body}
             id="post-body"
             onChange={(e) => setBody(e.target.value)}
             required
