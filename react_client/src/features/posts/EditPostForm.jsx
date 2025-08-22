@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { API_URL } from "../../constants";
+import {
+  fetchPost as fetchPost_by_id,
+  fetchUpdatePost,
+} from "../../api_services/postService";
 
 function EditPostForm() {
   const [post, setPost] = useState(null);
@@ -13,13 +16,15 @@ function EditPostForm() {
     const fechCurrentPost = async () => {
       try {
         // const response = await fetch("${API_URL}/${id}");
-        const response = await fetch(`${API_URL}/${id}`); // ✅ usa id aqui
-        if (response.ok) {
-          const json = await response.json();
-          setPost(json);
-        } else {
-          throw response;
-        }
+        // const response = await fetch(`${API_URL}/${id}`); // ✅ usa id aqui
+        // if (response.ok) {
+        //   const json = await response.json();
+        //   setPost(json);
+        // } else {
+        //   throw response;
+        // }
+        const json = await fetchPost_by_id(id);
+        setPost(json);
       } catch (e) {
         setError("Error occurred..." + e);
         console.log("Error occurred..." + e);
@@ -36,23 +41,35 @@ function EditPostForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_URL}/${id}`, {
-        method: "PUT",
-        headers: { "content-type": "application/json" },
-        // body: JSON.stringify(post),
-        body: JSON.stringify({
-          title: post.title,
-          body: post.body,
-        }),
-      });
-      if (response.ok) {
-        const { id } = await response.json();
-        console.log("Edited with success");
-        navigate(`/posts/${id}`);
-      } else {
-        console.log("Response with problem " + response.statusText);
-      }
-    } catch (e) {}
+      // const data = JSON.stringify(post);
+      const data = {
+        title: post.title,
+        body: post.body,
+      };
+      const response = await fetchUpdatePost(id, data);
+      console.log("response", response);
+      navigate(`/posts/${response.id}`);
+    } catch (e) {
+      console.error("Error editing post " + e);
+    }
+    // try {
+    //   const response = await fetch(`${API_URL}/${id}`, {
+    //     method: "PUT",
+    //     headers: { "content-type": "application/json" },
+    //     // body: JSON.stringify(post),
+    //     body: JSON.stringify({
+    //       title: post.title,
+    //       body: post.body,
+    //     }),
+    //   });
+    //   if (response.ok) {
+    //     const { id } = await response.json();
+    //     console.log("Edited with success");
+    //     navigate(`/posts/${id}`);
+    //   } else {
+    //     console.log("Response with problem " + response.statusText);
+    //   }
+    // } catch (e) {}
   };
 
   return (
