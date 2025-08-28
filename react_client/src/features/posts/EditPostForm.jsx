@@ -4,6 +4,7 @@ import {
   fetchPost as fetchPost_by_id,
   fetchUpdatePost,
 } from "../../api_services/postService";
+import PostForm from "./PostForm";
 
 function EditPostForm() {
   const [post, setPost] = useState(null);
@@ -13,7 +14,7 @@ function EditPostForm() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fechCurrentPost = async () => {
+    const fechCurrentPost = async (form) => {
       try {
         // const response = await fetch("${API_URL}/${id}");
         // const response = await fetch(`${API_URL}/${id}`); // ✅ usa id aqui
@@ -38,15 +39,15 @@ function EditPostForm() {
   if (loading) return <p>Loading...</p>;
   if (!post) return <p>Post not found</p>;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleUpdateSubmit = async (formData) => {
+    // e.preventDefault();
     try {
       // const data = JSON.stringify(post);
-      const data = {
-        title: post.title,
-        body: post.body,
-      };
-      const response = await fetchUpdatePost(id, data);
+      // const data = {
+      //   title: post.title,
+      //   body: post.body,
+      // };
+      const response = await fetchUpdatePost(id, formData);
       console.log("response", response);
       navigate(`/posts/${response.id}`);
     } catch (e) {
@@ -73,33 +74,39 @@ function EditPostForm() {
   };
 
   return (
-    <div>
-      <h2>Edit post form.</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="titleInput">Title:</label>
-          <input
-            type="text"
-            id="post-title"
-            value={post.title}
-            onChange={(e) => setPost({ ...post, title: e.target.value })}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="bodyInput">Body:</label>
-          <textarea
-            value={post.body}
-            id="post-body"
-            onChange={(e) => setPost({ ...post, body: e.target.value })}
-            required
-          />
-        </div>
-        <div>
-          <button type="submit">Update Post</button>
-        </div>
-      </form>
-    </div>
+    <PostForm
+      post={post}
+      headerText="Edit post form."
+      buttonText="Update Post"
+      onSubmit={handleUpdateSubmit}
+    />
+    // <div>
+    //   <h2>Edit post form.</h2>
+    //   <form onSubmit={handleSubmit}>
+    //     <div>
+    //       <label htmlFor="titleInput">Title:</label>
+    //       <input
+    //         type="text"
+    //         id="post-title"
+    //         value={post.title}
+    //         onChange={(e) => setPost({ ...post, title: e.target.value })}
+    //         required
+    //       />
+    //     </div>
+    //     <div>
+    //       <label htmlFor="bodyInput">Body:</label>
+    //       <textarea
+    //         value={post.body}
+    //         id="post-body"
+    //         onChange={(e) => setPost({ ...post, body: e.target.value })}
+    //         required
+    //       />
+    //     </div>
+    //     <div>
+    //       <button type="submit">Update Post</button>
+    //     </div>
+    //   </form>
+    // </div>
   );
 }
 
