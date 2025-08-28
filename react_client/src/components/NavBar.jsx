@@ -1,5 +1,4 @@
 // Post list link | Post new
-
 import { Link } from "react-router-dom";
 
 function NavBar() {

@@ -2,11 +2,11 @@ require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @post = posts(:one)
+    @post = api_vi_posts(:one)
   end
 
   test "should get index" do
-    get posts_url, as: :json
+    get api_vi_posts_url, as: :json
     assert_response :success
   end
 
@@ -19,18 +19,18 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show post" do
-    get post_url(@post), as: :json
+    get api_v1_post_url(@post), as: :json
     assert_response :success
   end
 
   test "should update post" do
-    patch post_url(@post), params: { post: { body: @post.body, title: @post.title } }, as: :json
+    patch api_v1_post_url(@post), params: { post: { body: @post.body, title: @post.title } }, as: :json
     assert_response :success
   end
 
   test "should destroy post" do
     assert_difference("Post.count", -1) do
-      delete post_url(@post), as: :json
+      delete api_v1_post_url(@post), as: :json
     end
 
     assert_response :no_content

@@ -1,26 +1,26 @@
+// NavBar.test.jsx
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import { Link, MemoryRouter } from "react-router-dom"; // To mock 'Link' components from 'react-router-dom'
+import { mount, shallow } from "enzyme";
+import { render, screen } from "../setupTests";
+import { expect } from "chai";
 import NavBar from "./NavBar";
 
 describe("NavBar component", () => {
-  const renderNavBar = () => {
-    render(<NavBar />, { wrapper: MemoryRouter });
-    // render(
-    //   <MemoryRouter>
-    //     <nav>
-    //       <Link to="/">Post List</Link>
-    //       {"|"}
-    //       <Link to="/new">New Post</Link>
-    //     </nav>
-    //   </MemoryRouter>
-    // );
-  };
-  test("renders both links", () => {
-    // render the navbar
-    renderNavBar();
-    // expect the links to be there or something
-    // expect(screen.getByText("Post List")).toBeInTheDocument();
-    // expect(screen.getByText("New Post")).toBeInTheDocument();
+  test("renders the component", () => {
+    render(<MyComponent />);
+    expect(screen.getByText("Hello World")).toBeInTheDocument();
   });
+  // it("renders the navigation bar", () => {
+  //   const wrapper = shallow(<NavBar />);
+  //   expect(wrapper.find("nav")).to.have.lengthOf(1);
+  // });
+
+  // it("responds to click events on nav links", () => {
+  //   const wrapper = mount(<NavBar />);
+  //   const link = wrapper.find("a").first();
+  //   link.simulate("click");
+  //   expect(link).to.have.attr("aria-current", "page");
+  // });
+
+  // Add more tests as needed
 });
