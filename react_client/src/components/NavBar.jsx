@@ -7,7 +7,7 @@ function NavBar() {
     <nav>
       <Link to="/">Post List</Link>
       {"|"}
-      <Link to="/new">New Post</Link>
+      <Link to="/new">New Post </Link>
     </nav>
   );
 }
