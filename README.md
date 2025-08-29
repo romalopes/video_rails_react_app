@@ -66,3 +66,7 @@ $ heroku run rails db:migrate
 $ heroku run rails db:seed
 $ heroku open
 ```
+
+To add images:
+$ rails active_storage:install
+$ rails db:migrate

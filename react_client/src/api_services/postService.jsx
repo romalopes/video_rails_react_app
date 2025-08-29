@@ -71,13 +71,14 @@ async function fetchCreatePost(postData) {
   try {
     const response = await fetch(API_URL, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      // headers: { "content-type": "application/json" },
       // body: JSON.stringify({ title, body }),
-      body: JSON.stringify(postData),
+      // body: JSON.stringify(postData),
+      body: postData,
     });
     if (response.ok) {
       const { id } = await response.json();
-      console.log("Created with success");
+      console.log("Created with success" + id);
       return { id };
     } else {
       console.log("Response with problem " + response.statusText);

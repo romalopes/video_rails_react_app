@@ -8,7 +8,7 @@ function NewPostForm() {
   // const [body, setBody] = useState("");
   const navigate = useNavigate();
 
-  const handleCreateSubmit = async (formData) => {
+  const handleCreateSubmit = async (rawData) => {
     // try {
     //   e.preventDefault();
     //   const postData = { title, body };
@@ -29,6 +29,11 @@ function NewPostForm() {
     // } catch (e) {
     //   console.error("Error trying to create post " + e);
     // }
+    const formData = new FormData();
+    formData.append("post[title]", rawData.title);
+    formData.append("post[body]", rawData.body);
+    console.log("rawData.image", rawData);
+    formData.append("post[image]", rawData.image);
 
     try {
       console.log("1");

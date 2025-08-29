@@ -1,16 +1,33 @@
 class Api::V1::PostsController < ApplicationController
   before_action :set_post, only: %i[ show update destroy ]
 
+
+
   # GET /posts
   def index
     @posts = Post.order(created_at: :desc)
 
-    render json: @posts
+    posts_with_images = @posts.map do |post|
+      puts "#{post.id}- post.image.attached?: #{post.image.attached?} - #{post.image} "
+      if post.image.attached?
+        post.as_json.merge(image_url: url_for(post.image))
+      # post
+      else
+        post.as_json.merge(image_url: nil)
+      end
+    end
+
+    render json: posts_with_images
   end
 
   # GET /posts/1
   def show
-    render json: @post
+    if @post.image.attached?
+      render json: @post.as_json.merge(image_url: url_for(@post.image))
+    else
+      render json:  @post.as_json.merge(image_url: nil)
+    end
+    # render json: @post
   end
 
   # POST /posts
@@ -47,6 +64,7 @@ class Api::V1::PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :title, :body ])
+      puts "\n\n\nparams: #{params}\n\n"
+      params.expect(post: [ :title, :body, :image ])
     end
 end
