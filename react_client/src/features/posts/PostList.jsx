@@ -66,7 +66,9 @@ function PostList() {
       {posts.map((post) => (
         <div key={post.id} className="post-container">
           <h2>
-            <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            <Link to={`/posts/${post.id}`}>
+              {post.id} - {post.title}
+            </Link>
           </h2>
           <div className="post-links">
             <Link to={`/posts/${post.id}/edit`}> Edit post </Link>

@@ -26,3 +26,18 @@ npm install --save-dev jest @testing-library/jest-dom @testing-library/react @te
 #### create a .eslintrc.cjs
 
 #### npm install --save-dev @babel/plugin-transform-runtime
+
+Test:
+$ npm install --save-dev jest babel-jest @babel/preset-env @babel/preset-react
+
+add: delete jest.config.js and add jest-preset.js
+
+$ npm install --save-dev @testing-library/react
+
+$ npm install --save-dev jest-environment-jsdom
+
+$ npm install --save-dev @testing-library/jest-dom
+
+npm install --save-dev jest @testing-library/jest-dom @testing-library/react @testing-library/user-event babel-jest @babel/preset-env @babel/preset-react vite-plugin-testing babel-plugin-transform-import-meta jest-environment-jsdom eslint-plugin-jest jest-fetch-mock history
+
+npm install --save-dev jest @testing-library/jest-dom @testing-library/react @testing-library/user-event babel-jest @babel/preset-env @babel/preset-react vite-plugin-testing babel-plugin-transform-import-meta jest-environment-jsdom eslint-plugin-jest jest-fetch-mock history --force

@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "mocha --require ./setupTests.js",
+    "test": "jest --testEnvironment=jsdom",
     "test:ci": "jest --coverage",
     "install": "npx browserslist@latest --update-db",
     "postinstall": "npx browserslist@latest --update-db",
@@ -23,6 +23,7 @@
     "react-router-dom": "^7.8.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.3",
     "@babel/plugin-transform-runtime": "^7.28.3",
     "@babel/preset-env": "^7.28.3",
     "@babel/preset-react": "^7.27.1",

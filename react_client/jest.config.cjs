@@ -1,12 +1,12 @@
 // jest.config.js
 module.exports = {
-  // globals: {
-  //   "import.meta": {
-  //     env: {
-  //       VITE_API_URL: "http://localhost:3000/api/v1/posts",
-  //     },
-  //   },
-  // },
+  globals: {
+    "import.meta": {
+      env: {
+        VITE_API_URL: "http://localhost:3000/api/v1/posts",
+      },
+    },
+  },
   transform: {
     "^.+\\.jsx?$": "babel-jest",
     // "^.+\\.(js|jsx)$": "babel-jest",
