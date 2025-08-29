@@ -70,3 +70,4 @@ $ heroku open
 To add images:
 $ rails active_storage:install
 $ rails db:migrate
+$ rails db:reset
