@@ -1,0 +1,19 @@
+.post-image {
+  /* width: 100px;
+  height: 100px;
+  object-fit: cover; */
+  width: 20rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.post-imag-stub {
+  width: 20rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #ccc;
+}

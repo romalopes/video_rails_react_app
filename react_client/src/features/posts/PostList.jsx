@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { API_URL } from "../../constants";
 import { Link } from "react-router-dom";
 import { fetchAllPosts, fetchDeletePost } from "../../api_services/postService";
+import "./PostDetails.css";
 
 function PostList() {
   const [posts, setPosts] = useState([]);
@@ -70,6 +71,18 @@ function PostList() {
               {post.id} - {post.title}
             </Link>
           </h2>
+          <div>
+            {post.image_url ? (
+              // {post.image_url && (
+              <img
+                src={post.image_url}
+                alt={post.title}
+                className="post-image"
+              />
+            ) : (
+              <div className="post-imag-stub" />
+            )}
+          </div>
           <div className="post-links">
             <Link to={`/posts/${post.id}/edit`}> Edit post </Link>
             <button onClick={() => deletePost(post.id)}>Delete Post</button>

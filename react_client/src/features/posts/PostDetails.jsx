@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-
-// import "./PostList.css"; // Assuming you have some styles for the PostList
+import "./PostDetails.css";
 import {
   fetchDeletePost as fetchDeletePost_by_id,
   fetchPost as fetchPost_by_id,
@@ -58,6 +57,11 @@ function PostDetails() {
     <div>
       <h2>{post.id}</h2>
       <h2>{post.title}</h2>
+      <div>
+        {post.image_url && (
+          <img src={post.image_url} alt={post.title} className="post-image" />
+        )}
+      </div>
       <p>{post.body}</p>
       <Link to="/"> Back to posts </Link>
       {" | "}
