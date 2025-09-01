@@ -52,3 +52,5 @@ end
 group :production do
   gem "pg"
 end
+
+gem "kaminari", "~> 1.2"

@@ -1,8 +1,9 @@
-import { API_URL } from "../constants";
+import { API_URL, SEARCH_API_URL } from "../constants";
+// import { console } from "console";
 
-async function fetchAllPosts() {
+async function fetchAllPosts(page = 1) {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(`${API_URL}?page=${page}`);
     if (response.ok) {
       const json = await response.json();
       return json;
@@ -89,10 +90,23 @@ async function fetchCreatePost(postData) {
   }
 }
 
+async function searchPosts(query, page = 1) {
+  //, page = 1
+  // => api/v1/search + /posts/?q=...
+  const response = await fetch(
+    `${SEARCH_API_URL}/posts?q=${query}&page=${page}`
+  );
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+  return response.json();
+}
+
 export {
   fetchAllPosts,
   fetchDeletePost,
   fetchUpdatePost,
   fetchPost,
   fetchCreatePost,
+  searchPosts,
 };
