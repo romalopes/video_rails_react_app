@@ -49,10 +49,13 @@ async function fetchDeletePost(id) {
 
 async function fetchUpdatePost(id, postData) {
   try {
+    console.log("Updating post with id " + id);
+    console.log("postData", postData);
     const response = await fetch(`${API_URL}/${id}`, {
       method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(postData),
+      // headers: { "content-type": "application/json" },
+      // body: JSON.stringify(postData),
+      body: postData,
     });
     if (response.ok) {
       console.log("Edited with success");

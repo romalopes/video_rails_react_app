@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import { fetchCreatePost } from "../../api_services/postService";
 import PostForm from "./PostForm";
+import { objectToFormData } from "../../utils/formDataHelper";
 
 function NewPostForm() {
   // const [title, setTitle] = useState("");
@@ -29,11 +30,13 @@ function NewPostForm() {
     // } catch (e) {
     //   console.error("Error trying to create post " + e);
     // }
-    const formData = new FormData();
-    formData.append("post[title]", rawData.title);
-    formData.append("post[body]", rawData.body);
-    console.log("rawData.image", rawData);
-    formData.append("post[image]", rawData.image);
+    const formData = objectToFormData({ post: rawData });
+    console.log("formData", formData);
+    // const formData = new FormData();
+    // formData.append("post[title]", rawData.title);
+    // formData.append("post[body]", rawData.body);
+    // console.log("rawData.image", rawData);
+    // formData.append("post[image]", rawData.image);
 
     try {
       console.log("1");
