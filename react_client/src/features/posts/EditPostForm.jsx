@@ -4,6 +4,7 @@ import {
   fetchPost as fetchPost_by_id,
   fetchUpdatePost,
 } from "../../api_services/postService";
+import { objectToFormData } from "../../utils/formDataHelper";
 import PostForm from "./PostForm";
 
 function EditPostForm() {
@@ -39,7 +40,7 @@ function EditPostForm() {
   if (loading) return <p>Loading...</p>;
   if (!post) return <p>Post not found</p>;
 
-  const handleUpdateSubmit = async (formData) => {
+  const handleUpdateSubmit = async (rawData) => {
     // e.preventDefault();
     try {
       // const data = JSON.stringify(post);
@@ -47,6 +48,14 @@ function EditPostForm() {
       //   title: post.title,
       //   body: post.body,
       // };
+      const sanitizedData = {
+        title: rawData.title,
+        body: rawData.body,
+        image: rawData.image,
+      };
+      // const formData = objectToFormData({ post: sanitizedData });
+      const formData = objectToFormData({ post: rawData });
+      console.log("\n\n\n\nformData", formData);
       const response = await fetchUpdatePost(id, formData);
       console.log("response", response);
       navigate(`/posts/${response.id}`);

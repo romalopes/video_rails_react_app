@@ -1,8 +1,6 @@
 class Api::V1::PostsController < ApplicationController
   before_action :set_post, only: %i[ show update destroy ]
 
-
-
   # GET /posts
   def index
     @posts = Post.order(created_at: :desc)
