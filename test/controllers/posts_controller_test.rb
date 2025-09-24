@@ -2,11 +2,11 @@ require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @post = api_vi_posts(:one)
+    @post = api_v1_posts(:one)
   end
 
   test "should get index" do
-    get api_vi_posts_url, as: :json
+    get api_v1_posts_url, as: :json
     assert_response :success
   end
 

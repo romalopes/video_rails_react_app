@@ -71,3 +71,24 @@ To add images:
 $ rails active_storage:install
 $ rails db:migrate
 $ rails db:reset
+
+1. Add rspec to GemFile
+   group :test do
+   gem 'factory_bot_rails'
+   gem 'rspec-rails'
+   end
+
+2. add application.rb
+   config.generators do |g|
+   g.test_framework(
+   :rspec,
+   fixtures: false,
+   view_specs: false,
+   helper_specs: false,
+   routing_specs: false)
+   end
+   $ rails g rspec:install  
+   $ rails g rspec:request
+   $ rails g rspec:request api/v1/Posts
+   $ rails g model Dummy
+   $ rails g model Comment title content
