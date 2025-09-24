@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # API routes for posts should be in api/v1/posts.rb
   namespace :api do
     namespace :v1 do
+      get "search/posts"
       resources :posts
     end
   end

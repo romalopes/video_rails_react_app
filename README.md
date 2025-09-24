@@ -34,6 +34,8 @@ Add Rack::Cors with initializer.
 $ rails g scaffold post title body:text
 $ rails db:migrate
 $ rails db:seed
+$ rails g controller API::V1::search posts
+$ bundle add kaminari
 ```
 
 Creating the react app
