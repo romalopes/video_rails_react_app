@@ -55,6 +55,16 @@ end
 
 group :test do
    gem "rspec-rails"
+   gem "database_cleaner-active_record" # database cleaning. Provides strategies for cleaning databases in Ruby applications using ActiveRecord, primarily to ensure a clean state for testing.
+   #  gem "shoulda-matchers" # database validators
+   #  gem "simplecov", require: false # code coverage
+   #  gem "timecop" # The timecop gem provides capabilities for "time travel," "time freezing," and "time acceleration," simplifying the testing of time-dependent code in Ruby projects.
+   #  gem "webmock" # testing http requests
+   #  gem "vcr" # record http requests and sequences
+   #  gem "webdrivers" # Run Selenium tests more easily with install and updates for all supported webdrivers.
+   #  gem "selenium-webdriver" # Run Selenium tests more easily with install and updates for all supported webdrivers.
+   gem "capybara-screenshot" # Take screenshots of Capybara tests
+   gem "capybara" # Capybara is an integration testing tool that allows you to test your web application in a real browser
 end
 
 group :production do

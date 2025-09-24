@@ -10,7 +10,7 @@ RSpec.describe "Api::V1::Posts", type: :request do
       expect(response).to have_http_status(200)
       posts = JSON.parse(response.body)
       puts "posts: #{posts}"
-      expect(posts[0]["title"]).to eq post.title # posts["posts"][0]["title"]
+      expect(posts["posts"][0]["title"]).to eq post.title # posts["posts"][0]["title"]
     end
 
     it "test show post" do
